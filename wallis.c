@@ -5,13 +5,6 @@
 
 float wallis_pi(int);
 
-float mc_pi(int);
-float frandom(){
-  long int q=random();
-  float ret = (float)q/(float)RAND_MAX;
-  return ret;
-}
-
 int main(void) {
   float pi0;
   float pi1;
@@ -37,23 +30,14 @@ int main(void) {
   }
 }
 float mc_pi(int n)
-{ float t,x,y;
- int within_circle=0;
- int outside_circle=0;
- int total_point=0;
- for(int i=0;i<=n;i++)
- { x=frandom();
-  y=frandom();
-  t=(x*x)+(y*y);
-  if(t<=1)
-  { within_circle++;
+{
+  float ret=1.0;
+  float base;
+  for(int i=0;i<=n;i++)
+  { base=(float)(4*i*i)/((4*i*i)-1);
+   ret=ret*base;
   }
-  else
-  { outside_circle++;
-  }
- }
- total_points= within_circle+ outside_circle;
- float pi= 4*(float)within_circle/total_points;
- return pi;
+  ret=ret*2;
+  return ret;
 }
 
