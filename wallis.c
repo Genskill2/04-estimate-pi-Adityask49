@@ -13,8 +13,8 @@ float frandom(){
 }
 
 int main(void) {
-  float pi;
   float pi0;
+  float pi1;
   
   pi0=mc_pi(25000);
   pi1=mc_pi(25000);
@@ -42,7 +42,7 @@ float mc_pi(int n)
  int outside_circle=0;
  int total_point=0;
  for(int i=0;i<=n;i++)
- { x=frrandom();
+ { x=frandom();
   y=frandom();
   t=(x*x)+(y*y);
   if(t<=1)
