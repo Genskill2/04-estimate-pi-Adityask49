@@ -5,8 +5,21 @@
 
 float wallis_pi(int);
 
+float mc_pi(int);
+float frandom(){
+  long int q=random();
+  float ret = (float)q/(float)RAND_MAX;
+  return ret;
+}
+
 int main(void) {
   float pi;
+  float pi0;
+  
+  pi0=mc_pi(25000);
+  pi1=mc_pi(25000);
+  printf("%f %f\n", pi0,pi1);
+  
   for (int i=0; i<5; i++) {
     pi = wallis_pi(i);
     if (!(fabs(pi - M_PI) > 0.15)) {
